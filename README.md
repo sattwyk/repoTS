@@ -1,53 +1,51 @@
-# repoTS README
+# repoTS - Automatic TypeScript SDK Manager
 
-This is the README for your extension "repoTS". After writing up a brief description, we recommend including the following sections.
+## Overview
+
+The **repoTS** VS Code extension automatically switches the TypeScript SDK version used by the Language Server based on the current file being edited. This is especially useful in monorepos, where different packages might use different TypeScript versions.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- 🔍 **Automatic Detection**: Finds the nearest TypeScript library by recursively searching upward from the current file's directory.
+- ⚙️ **SDK Switching**: Updates the `typescript.tsdk` workspace setting on-the-fly when you switch between TypeScript files in different packages.
+- 🔄 **Seamless Integration**: Works silently in the background, with a reload prompt only when necessary.
 
-For example if there is an image subfolder under your extension project workspace:
+## How It Works
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. When you open a TypeScript (`.ts` or `.tsx`) file, repoTS checks for the nearest `node_modules/typescript/lib` directory.
+2. If found and different from the current setting, it updates the workspace setting to point to that directory.
+3. A prompt to reload VS Code appears only when the TypeScript SDK path has changed.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- VS Code 1.99.0 or higher
+- TypeScript projects with local installations of TypeScript
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension doesn't add any new settings, but it automatically manages the built-in VS Code setting:
 
-For example:
+- `typescript.tsdk`: Path to the folder containing the TypeScript SDK (`tsserver.js`, `lib.d.ts`, etc.)
 
-This extension contributes the following settings:
+## Use Cases
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+Perfect for:
+
+- Monorepos with multiple packages using different TypeScript versions
+- Projects that need to switch between TypeScript versions for different parts of the codebase
+- Ensuring each file is checked with the correct TypeScript version automatically
+
+## Release Notes
+
+### 0.0.1
+
+- Initial release with core functionality
+- Automatic TypeScript SDK detection and switching
+- Prompt for reload when SDK changes
 
 ## Known Issues
 
 Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
 
 ## Following extension guidelines
 
