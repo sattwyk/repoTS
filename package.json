@@ -47,6 +47,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "effect": "^3.14.10"
+    "effect": "^3.14.10",
+    "ts-pattern": "^5.7.0"
   }
 }
