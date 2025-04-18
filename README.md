@@ -43,10 +43,6 @@ Perfect for:
 - Automatic TypeScript SDK detection and switching
 - Prompt for reload when SDK changes
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
 ## Following extension guidelines
 
 Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
